@@ -18,7 +18,6 @@ public class CharacterMovement : MonoBehaviour
     private float _velocityX;
     private float _velocityY;
     private bool _shootingRight;
-    private bool _onGround;
     private float waterCheck;
     private bool _isShooting = false;
 
@@ -37,7 +36,8 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         controller.velocity = new Vector2(_velocityX, controller.velocity.y + _velocityY);
-
+        _velocityY = 0f;
+        
         if (waterCheck + waterBuffer <= Time.time && _isShooting)
         {
             GameObject newWater = Instantiate(water, transform.position, Quaternion.identity);
@@ -72,10 +72,21 @@ public class CharacterMovement : MonoBehaviour
     void OnSpray()
     {
         _isShooting = !_isShooting;
+        if (_isShooting && !CheckGrounded())
+        {
+            if (controller.velocity.y >= 1f)
+                controller.velocity = Vector2.up * 10f;
+            else
+                controller.velocity = Vector2.up;
+        }
     }
 
     bool CheckGrounded()
     {
-        return Physics2D.Raycast(transform.position + (Vector3.down * 1.1f), Vector2.down, 0.1f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + (Vector3.down * 1.1f), Vector2.down, 0.1f);
+        if (hit.transform != null)
+            if (hit.transform.CompareTag("Water")) return false;
+            else return true;
+        return false;
     }
 }

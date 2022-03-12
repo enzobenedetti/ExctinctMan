@@ -21,7 +21,6 @@ public class WaterBehaviour : MonoBehaviour
     {
         if (!other.CompareTag("Player") && !other.CompareTag("Water"))
         {
-            Debug.Log("Coucou pepito" + other.name);
             Destroy(gameObject);
         }
     }
