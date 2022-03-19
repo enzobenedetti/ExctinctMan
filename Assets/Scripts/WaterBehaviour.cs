@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class WaterBehaviour : MonoBehaviour
@@ -21,6 +22,10 @@ public class WaterBehaviour : MonoBehaviour
     {
         if (!other.CompareTag("Player") && !other.CompareTag("Water"))
         {
+            if (other.CompareTag("Fire"))
+            {
+                other.GetComponent<IFire>().LoseHealth();
+            }
             Destroy(gameObject);
         }
     }
