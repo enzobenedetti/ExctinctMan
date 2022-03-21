@@ -544,6 +544,7 @@ GameObject:
   - component: {fileID: 1011335773}
   - component: {fileID: 1011335772}
   - component: {fileID: 1011335775}
+  - component: {fileID: 1011335778}
   - component: {fileID: 1011335776}
   - component: {fileID: 1011335774}
   - component: {fileID: 1011335777}
@@ -701,10 +702,24 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Input
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Character
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1011335778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011335771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f867af2263bc284389cf4eccb97814e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  bufferTime: 3
 --- !u!1 &1330336584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  timeAttack: 0
 --- !u!61 &1685106654
 BoxCollider2D:
   m_ObjectHideFlags: 0
