@@ -8,6 +8,8 @@ public class BossBehaviour : MonoBehaviour, IFire
     public int health = 500;
 
     public float timeAttack;
+
+    public float timeBalise;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class BossBehaviour : MonoBehaviour, IFire
         if (health <= 0)
         {
             Debug.Log("Die");
+            Destroy(gameObject);
         }
     }
 }
